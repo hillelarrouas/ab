@@ -1,27 +1,30 @@
-.cardmove{
+.cardmove {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 100px auto 50px;
+    margin: 130px auto 50px;
     max-width: 1200px;
-  }
-  
-  img{
- width: 98%;
- height: 380px;
- border-radius: 15px 15px 0 0 ;
-  }
-  .move{
-      padding: 5px;
-      margin: 10px;
-      background: rgb(172, 218, 211);
-      border-radius: 10px;
-      width: 260px;
-  }
-  .Title{
-      font-size: 20px;
-  }
-  .Year{
-      font-size: 18px;
-      font-weight: 600;
-  }
+}
+
+img {
+    width: 98%;
+    height: 380px;
+    border-radius: 15px 15px 0 0;
+}
+
+.move {
+    padding: 5px;
+    margin: 10px;
+    background: rgb(172, 218, 211);
+    border-radius: 10px;
+    width: 260px;
+}
+
+.Title {
+    font-size: 20px;
+}
+
+.Year {
+    font-size: 18px;
+    font-weight: 600;
+}
