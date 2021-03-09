@@ -9,8 +9,41 @@ import {
   Switch,
   Route,
   Link,
-  useHistory
 } from "react-router-dom";
+
+
+// console.log('ll')
+
+// let array = []
+// fetch('/getdata')
+//   .then(r => r.json())
+//   .then(d => {
+//     d.deta.forEach(element => {
+//       array.push(element)
+//     });
+//   })
+
+const Time = () => {
+  return (
+    <>
+      <div className="cardnav-link"><Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link></div>
+      <div className="home">
+        <Timehtml text={'שולחן שמאל'} />
+        <Timehtml text={'שולחן ימין'} />
+      </div>
+      <Cardtext />
+    </>
+  )
+}
+
+function Card() {
+  return (
+    <>
+      <div className="cardnav-link"><Link className='nav-link' to="/"><div className="nav-linkdiv">טיימר</div></Link></div>
+      <TimerManagement />
+    </>
+  );
+}
 
 function App() {
   return (
@@ -28,38 +61,6 @@ function App() {
         </div>
       </div>
     </Router >
-  );
-}
-// console.log('ll')
-
-// let array = []
-// fetch('/getdata')
-//   .then(r => r.json())
-//   .then(d => {
-//     d.deta.forEach(element => {
-//       array.push(element)
-//     });
-//   })
-
-const Time = () => {
-  return (
-    <>
-      <Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link>
-      <div className="home">
-        <Timehtml text={'שולחן שמאל'} />
-        <Timehtml text={'שולחן ימין'} />
-      </div>
-      <Cardtext />
-    </>
-  )
-}
-
-function Card() {
-  return (
-    <>
-      <Link className='nav-link' to="/"><div className="nav-linkdiv">טיימר</div></Link>
-      <TimerManagement />
-    </>
   );
 }
 

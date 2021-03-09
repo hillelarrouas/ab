@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const mongoose = require('mongoose');
-app.use(express.static(path.join(__dirname,  'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 const url = "mongodb+srv://hillel:Aa25802580@cluster0.rv8jb.mongodb.net/Matzah";
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -55,10 +55,7 @@ app.post('/oupdetRounds', async (req, res) => {
 
 app.post('/savetime', async (req, res) => {
     const { timeLength, cosher, Tables, baking, radio } = req.body
-    const d = await Tens.replaceOne({ Type: radio }, { cosher, Tables, baking, timeLength, Type: radio, Roundsonthetable: 0 })
-    console.log(d)
-    // const savetime = new Tens({ timeLength, cosher, Tables, baking, Type: radio });
-    // await savetime.save().then(doc => console.log(doc)).catch(e => console.log(e));
+    await Tens.replaceOne({ Type: radio }, { cosher, Tables, baking, timeLength, Type: radio, Roundsonthetable: 0 })
     const deta = await Tens.find({})
     res.send({ deta })
 })

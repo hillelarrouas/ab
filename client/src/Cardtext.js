@@ -19,7 +19,7 @@ function Cardtext() {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 || Datetime >= 0 && Datetime < 6) {
+        else if (Datetime >= 23 ||( Datetime >= 0 && Datetime < 6)) {
             day = 'לילה'
         }
 
@@ -49,7 +49,7 @@ function Cardtext() {
             </div>
             <div className="text">
                 <div className="titeltext">משמרת {day}</div>
-                <div className="textbox">{dayState.Tables} שולחנות</div>
+                <div className="textbox" style={{direction:'rtl'}}>{dayState.Tables} שולחנות</div>
             </div>
             <div className="text">
                 <div className="titeltext">סה"כ שולחנות</div>
