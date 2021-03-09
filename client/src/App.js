@@ -1,6 +1,9 @@
 import './App.css';
-import React, { useEffect } from "react";
-import Login from './login'
+import React from "react";
+import Timehtml from './Timehtml';
+import Cardtext from './Cardtext';
+import TimerManagement from './TimerManagement';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,21 +16,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="cardmnue">
-          <div className="nav-linkdiv">
-            <Link className='nav-link' to="/">דף הבית</Link>
-          </div>
-          <div className="nav-linkdiv">
-            <Link className='nav-link' to="/move">חיפוש סרט</Link>
-          </div>
-        </div>
         <div className="cardto">
           <Switch>
-            <Route path="/move">
-              <Move />
+            <Route path="/Management">
+              <Card />
             </Route>
             <Route path="/">
-              <Home />
+              <Time />
             </Route>
           </Switch>
         </div>
@@ -35,25 +30,36 @@ function App() {
     </Router >
   );
 }
+// console.log('ll')
 
+// let array = []
+// fetch('/getdata')
+//   .then(r => r.json())
+//   .then(d => {
+//     d.deta.forEach(element => {
+//       array.push(element)
+//     });
+//   })
 
-const Home = () => {
+const Time = () => {
   return (
-    <div className="home">
-      <div className="home-text">React - האתר הראשון שלי ב</div>
-    </div>
+    <>
+      <Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link>
+      <div className="home">
+        <Timehtml text={'שולחן שמאל'} />
+        <Timehtml text={'שולחן ימין'} />
+      </div>
+      <Cardtext />
+    </>
   )
 }
 
-
-
-function Move() {
+function Card() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Login />
-      </header>
-    </div>
+    <>
+      <Link className='nav-link' to="/"><div className="nav-linkdiv">טיימר</div></Link>
+      <TimerManagement />
+    </>
   );
 }
 

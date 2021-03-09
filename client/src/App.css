@@ -1,180 +1,38 @@
-/* body{
-  background-color: #282c34;
-}
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.imgsrc{
-  width: 250px;
-  margin: 20px;
-}
-.butoonrandomimg{
-  padding: 10px 15px;
-  outline: none;
-  border-radius: 10px;
-  border:2px solid gray;
-  font-size: 20px;
-}
-
-input{
-  padding: 10px;
-  margin: 10px;
-  background-color: rgb(190, 190, 190);
-  border-radius: 10px;
-  border:4px solid grey;
-  outline: none;
-  font-size: 18px;
-  
-}
-
-.login{
-  top: 10px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
-}
-
-.mes{
-  font-size: 24px;
-  color: rgb(197, 197, 197);
-  font-weight: 600;
-}
-
-
-.minu{
-
-} */
-
 body {
   background-image: url(background.jpg);
   background-attachment: fixed;
 }
 
-.cardmnue {
+.home{
   display: flex;
   justify-content: space-evenly;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #686f7c;
-  padding: 12px;
-  direction: rtl;
 }
 
 .nav-link {
-  color: white;
+  color: black;
   text-decoration: none;
+  transition: all 0.3;
 }
 
 .nav-linkdiv {
+  margin: 10px 0 10px 10px;
   padding: 10px 15px;
   border-radius: 15px;
-  transition: all 0.2s;
   font-size: 20px;
   font-weight: 600;
   font-family: 'Rubik', sans-serif;
+  width: 120px;
+  text-align: center;
+  background-color: whitesmoke;
+  color: black;
+  transition: all 0.3;
 }
 
 .nav-linkdiv:hover {
-  background-color: #282c34;
+  background-color:#8a9494;
+  color: white;
 }
 
-.cardto{
-  width: 100%;
-  margin-top: 70px;
-}
-
-.home{
-  width: 100%;
-}
-
-.home-text{
-  font-size: 30px;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  color: #282c34;
-}
-
-/* .imgsrc{
-  width: 250px;
-  margin: 20px;
-}
-.butoonrandomimg{
-  padding: 10px 15px;
-  outline: none;
-  border-radius: 10px;
-  border:2px solid gray;
-  font-size: 20px;
-}
-
-input{
-  padding: 10px;
-  margin: 10px;
-  background-color: rgb(190, 190, 190);
-  border-radius: 10px;
-  border:4px solid grey;
-  outline: none;
-  font-size: 18px;
-  
-}
-
-.login{
-  background-color: gray;
-  top: 68px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
-}
-
-.mes{
-  font-size: 24px;
-  color: rgb(197, 197, 197);
-  font-weight: 600;
-} */
-
-.login{
-  top: 68px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
-}
-
-input[type="text"]{
-  padding: 10px;
-  margin:10px 10px 0 0;
-  background:rgb(211, 210, 210);
-  border-radius: 5px;
-  width: 80%;
-  max-width: 450px;
-  border:2px solid grey;
-  outline: none;
-  font-size: 18px;
-  text-align: center;
-}
-
-input[type="submit"]{
-  padding: 10px;
-  background:rgb(211, 210, 210);
-  border-radius: 5px;
-  border:2px solid grey;
-  outline: none;
-  font-size: 18px;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-input[type="submit"]:hover{
-  background-color: gray;
-}
-
-input[type="submit"]:active{
-  transform: scale(0.9);
+.nav-linkdiv:hover .nav-link{
+  color: rgb(104, 100, 100);
 }

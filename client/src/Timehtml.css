@@ -1,0 +1,38 @@
+.card {
+    background-color: #a6aebeb9;
+    width: 48%;
+    text-align: center;
+    font-family: 'Assistant', sans-serif;
+    border-radius: 20px;
+    position: relative;
+}
+
+.texttable {
+    font-size: min(4vw, 280rem);
+}
+
+.texttime {
+    font-size: min(12vw, 450rem);
+    background-color: rgba(255, 250, 250, 0.623);
+    border-radius: 0 0 15px 15px;
+}
+
+.retern {
+    outline: none;
+    padding: 10px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border: 0;
+    background-color: #7b828f;
+    border-radius: 10px;
+    font-size: min(2vw, 150rem);
+    transition: all 0.2s;
+}
+.retern:hover{
+    background-color: #8a9494;
+    color: white;
+}
+.retern:active{
+    transform: scale(0.5);
+}

@@ -1,0 +1,29 @@
+.cardtext {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.text {
+    width: 48%;
+    border: 2px solid gray;
+    border-radius: 25px;
+    /* background-color: greenyellow; */
+    box-sizing: border-box;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.titeltext {
+    font-size: min(3.7vw, 300rem);
+    background-color: #a6aebeb9;
+    border-radius: 25px 25px 0 0;
+    font-weight: 600;
+}
+
+.textbox {
+    padding: 15px;
+    font-size: min(3vw, 300rem);
+}
