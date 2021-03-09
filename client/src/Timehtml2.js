@@ -5,11 +5,12 @@ import './Timehtml.css';
 let timerInterval
 let day
 
-function Timer2({ text }) {
+function Timehtml2({ text }) {
     let [timee, setTimer] = useState()
     let [start, setstart] = useState('התחל')
     let [timetimer, settimetimer] = useState(17.99166666666667)
     let [Rounds, setRounds] = useState({})
+    let [colortime, setcolortime] = useState('black')
 
 
     useEffect(() => {
@@ -24,7 +25,7 @@ function Timer2({ text }) {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 || (Datetime >= 0 && Datetime < 6)) {
+        else if (Datetime >= 23 || Datetime >= 0 && Datetime < 6) {
             day = 'לילה'
         }
 
@@ -49,11 +50,11 @@ function Timer2({ text }) {
 
     useEffect(() => {
         let twoMinutes = 60 * timetimer
-        if (start === 'הפסק') {
+        if (start == 'הפסק') {
 
             let timer = twoMinutes, minutes, seconds;
             timerInterval = setInterval(() => {
-                
+
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
@@ -64,6 +65,19 @@ function Timer2({ text }) {
 
                 if (--timer < 0) {
                     clearInterval(timerInterval);
+                    setTimer(Rounds.timeLength + ':00')
+                    setcolortime('black')
+                    setstart('התחל')
+                }
+
+                if (Math.trunc(timer) >= 100 && Math.trunc(timer) <= 120) {
+                    setcolortime('red')
+                }
+                else if (Math.trunc(timer) >= 0 && Math.trunc(timer) <= 30) {
+                    setcolortime('red')
+                }
+                else {
+                    setcolortime('black')
                 }
             }, 1000);
 
@@ -74,8 +88,8 @@ function Timer2({ text }) {
 
 
     const change = () => {
-        if (start === 'התחל') {
-            let r = (Number(Rounds.Tables) + 1)
+        if (start == 'התחל') {
+            let r = (Number(Rounds.Roundsonthetable) + 1)
             console.log(r)
             setstart('הפסק')
 
@@ -94,6 +108,7 @@ function Timer2({ text }) {
         }
         else {
             setTimer(Rounds.timeLength + ':00')
+            setcolortime('black')
             setstart('התחל')
         }
     }
@@ -103,9 +118,9 @@ function Timer2({ text }) {
         <div className="card">
             <button onClick={change} className='retern'>{start}</button>
             <div className='texttable'>{text}</div>
-            <div className='texttime'>{timee}</div>
+            <div className='texttime' style={{ color: colortime }}>{timee}</div>
         </div>
     )
 }
 
-export default Timer2
+export default Timehtml2

@@ -1,0 +1,28 @@
+.h1404 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.link404 {
+    color: rgb(75, 75, 75);
+    text-decoration: none;
+    transition: all 0.3;
+    width: 120px;
+}
+
+.divink404 {
+    border: 3px solid rgb(110, 110, 110);
+    font-size: 25px;
+    text-align: center;
+    width: 250px;
+    padding: 10px ;
+    border-radius: 25px;
+    background-color: rgb(255, 238, 238);
+    box-sizing: border-box;
+}
+.cardlink404{
+    width: 250px;
+    margin: auto;
+    border-radius: 25px;
+}

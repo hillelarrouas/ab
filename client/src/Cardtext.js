@@ -19,10 +19,9 @@ function Cardtext() {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 ||( Datetime >= 0 && Datetime < 6)) {
+        else if (Datetime >= 23 || (Datetime >= 0 && Datetime < 6)) {
             day = 'לילה'
         }
-
         fetch('/getdata', {
             method: 'post',
             headers: {
@@ -35,6 +34,22 @@ function Cardtext() {
             .then(d => {
                 setday(d.deta[0])
             })
+
+
+        setInterval(function () {
+            fetch('/getdata', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    day
+                })
+            }).then(r => r.json())
+                .then(d => {
+                    setday(d.deta[0])
+                })
+        }, 5000);
     }, [])
 
     return (
@@ -49,7 +64,7 @@ function Cardtext() {
             </div>
             <div className="text">
                 <div className="titeltext">משמרת {day}</div>
-                <div className="textbox" style={{direction:'rtl'}}>{dayState.Tables} שולחנות</div>
+                <div className="textbox" style={{ direction: 'rtl' }}>{dayState.Tables} שולחנות</div>
             </div>
             <div className="text">
                 <div className="titeltext">סה"כ שולחנות</div>

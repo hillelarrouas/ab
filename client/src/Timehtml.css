@@ -36,3 +36,25 @@
 .retern:active{
     transform: scale(0.5);
 }
+
+
+@media only screen and (max-width: 500px) {
+    .card{
+        width: 95%;
+        margin-top: 25px;
+    }
+    .texttable {
+        font-size: min(10vw, 280rem);
+    }
+    
+    .texttime {
+        font-size: min(20vw, 450rem);
+    }
+    .retern {
+        left:5px;
+        top: 5px;
+        font-size: min(6vw, 150rem);
+        padding: 8px;
+        border-radius: 15px 10px 10px 10px;
+    }
+}

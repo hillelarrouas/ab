@@ -10,7 +10,6 @@
     width: 48%;
     border: 2px solid gray;
     border-radius: 25px;
-    /* background-color: greenyellow; */
     box-sizing: border-box;
     text-align: center;
     margin: 25px 0;
@@ -26,4 +25,22 @@
 .textbox {
     padding: 15px;
     font-size: min(3vw, 300rem);
+}
+
+
+
+
+@media only screen and (max-width: 500px) {
+    .text{
+        width: 90%;
+        margin-top: 5px;
+    }
+    .titeltext{
+        font-size: min(10vw, 300rem);
+    }
+    .textbox {
+        padding: 15px;
+        font-size: min(11vw, 40px);
+    }
+    
 }

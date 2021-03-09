@@ -70,18 +70,20 @@ function TimerManagement() {
             <div className="cardinput">
                 <div className="titelcardinput">ניהול טיימר</div>
                 <form onSubmit={settimer}>
-                    <label htmlFor="Morning" className='lebelinputRadio'>בוקר
+                    <div className="cardinputradio">
+                        <label htmlFor="Morning" className='lebelinputRadio'>בוקר
                 <input type="radio" id="Morning" name="Type" value="בוקר" onChange={Typeradio} />
-                    </label>
-                    <label className='lebelinputRadio' htmlFor="noon">צהריים
+                        </label>
+                        <label className='lebelinputRadio' htmlFor="noon">צהריים
                 <input type="radio" id="noon" name="Type" value="צהריים" onChange={Typeradio} />
-                    </label>
-                    <label className='lebelinputRadio' htmlFor="evening">ערב
+                        </label>
+                        <label className='lebelinputRadio' htmlFor="evening">ערב
                 <input type="radio" id="evening" name="Type" value="ערב" onChange={Typeradio} />
-                    </label>
-                    <label className='lebelinputRadio' htmlFor="night">לילה
+                        </label>
+                        <label className='lebelinputRadio' htmlFor="night">לילה
                 <input type="radio" id="night" name="Type" value="לילה" onChange={Typeradio} />
-                    </label><br />
+                        </label><br />
+                    </div>
                     <div className="hoverflwh" style={{ height: height }}>
                         <div className="rtl">
                             <label className='lebelinputText' htmlFor="timeLength">אורך הטיימר  </label>

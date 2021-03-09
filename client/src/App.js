@@ -1,8 +1,10 @@
 import './App.css';
 import React from "react";
 import Timehtml from './Timehtml';
+import Timehtml2 from './Timehtml';
 import Cardtext from './Cardtext';
 import TimerManagement from './TimerManagement';
+import Error from './404';
 
 import {
   BrowserRouter as Router,
@@ -28,7 +30,7 @@ const Time = () => {
     <>
       <div className="cardnav-link"><Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link></div>
       <div className="home">
-        <Timehtml text={'שולחן שמאל'} />
+        <Timehtml2 text={'שולחן שמאל'} />
         <Timehtml text={'שולחן ימין'} />
       </div>
       <Cardtext />
@@ -58,10 +60,8 @@ function App() {
               <Time />
             </Route>
             <Route >
-              <h1 style={{textAlign:'center'}}>404</h1>
-              <Link className='nav-link' to="/"><div className="nav-linkdiv">חזרה לדף הבית</div></Link>
+              <Error />
             </Route>
-         
           </Switch>
         </div>
       </div>

@@ -7,8 +7,8 @@ let day
 
 function Timehtml({ text }) {
     let [timee, setTimer] = useState()
-    let [start, setstart] = useState(false)
-    let [timetimer, settimetimer] = useState()
+    let [start, setstart] = useState('התחל')
+    let [timetimer, settimetimer] = useState(17.99166666666667)
     let [Rounds, setRounds] = useState({})
     let [colortime, setcolortime] = useState('black')
 
@@ -25,11 +25,9 @@ function Timehtml({ text }) {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 ||( Datetime >= 0 && Datetime < 6)) {
+        else if (Datetime >= 23 || Datetime >= 0 && Datetime < 6) {
             day = 'לילה'
         }
-        console.log('use effect 1 start ' + start)
-
 
 
         fetch('/getdata', {
@@ -49,11 +47,10 @@ function Timehtml({ text }) {
     }, [])
 
 
+
     useEffect(() => {
         let twoMinutes = 60 * timetimer
-        console.log('use effect 2 start ' + start)
-        if (start === true) {
-            console.info('use effect 2 is on')
+        if (start == 'הפסק') {
 
             let timer = twoMinutes, minutes, seconds;
             timerInterval = setInterval(() => {
@@ -68,34 +65,33 @@ function Timehtml({ text }) {
 
                 if (--timer < 0) {
                     clearInterval(timerInterval);
-                }
-                if (Math.trunc(timer) > 100 && Math.trunc(timer) < 359) {
-                    setcolortime('red')
-                } else {
+                    setTimer(Rounds.timeLength + ':00')
                     setcolortime('black')
+                    setstart('התחל')
                 }
-                if (Math.trunc(timer) > 0 && Math.trunc(timer) < 30) {
+
+                if (Math.trunc(timer) >= 100 && Math.trunc(timer) <= 120) {
                     setcolortime('red')
-                } else {
+                }
+                else if (Math.trunc(timer) >= 0 && Math.trunc(timer) <= 30) {
+                    setcolortime('red')
+                }
+                else {
                     setcolortime('black')
                 }
             }, 1000);
 
         } else {
-            console.info('use effect 2 is off')
             clearInterval(timerInterval);
         }
     }, [start])
 
 
     const change = () => {
-        console.log('the status now is ' +start)
-        if (start === true) {
-        console.log('turning off')
-
+        if (start == 'התחל') {
             let r = (Number(Rounds.Tables) + 1)
-
             console.log(r)
+            setstart('הפסק')
 
             fetch('/oupdetRounds', {
                 method: 'post',
@@ -108,30 +104,20 @@ function Timehtml({ text }) {
             }).then(r => r.json())
                 .then(d => {
                     setRounds(d.deta[0])
-
-            clearInterval(timerInterval);
-
-
-                }).finally(()=>{
-                                        setstart(false)
-
+                    console.log(d.deta[0])
                 })
         }
         else {
-        console.log('turning on')
-
-            console.error(Rounds.timeLength )
-            console.error(Rounds.timeLength + ':00')
             setTimer(Rounds.timeLength + ':00')
             setcolortime('black')
-            setstart(true)
+            setstart('התחל')
         }
     }
 
 
     return (
         <div className="card">
-            <button onClick={change} className='retern'>{!start ? 'הפעל' : 'הפסק'}</button>
+            <button onClick={change} className='retern'>{start}</button>
             <div className='texttable'>{text}</div>
             <div className='texttime' style={{ color: colortime }}>{timee}</div>
         </div>
