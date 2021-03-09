@@ -68,7 +68,7 @@ function TimerManagement() {
     return (
         <div>
             <div className="cardinput">
-                <div className="titelcardinput">ניהול טיימר</div>
+                <div className="titelcardinput">ניהול טיימר {radio}</div>
                 <form onSubmit={settimer}>
                     <div className="cardinputradio">
                         <label htmlFor="Morning" className='lebelinputRadio'>בוקר

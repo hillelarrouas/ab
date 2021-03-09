@@ -25,7 +25,7 @@ function Timehtml2({ text }) {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 || Datetime >= 0 && Datetime < 6) {
+        else if (Datetime >= 23 ||(Datetime >= 0 && Datetime < 6)) {
             day = 'לילה'
         }
 
@@ -50,7 +50,7 @@ function Timehtml2({ text }) {
 
     useEffect(() => {
         let twoMinutes = 60 * timetimer
-        if (start == 'הפסק') {
+        if (start === 'הפסק') {
 
             let timer = twoMinutes, minutes, seconds;
             timerInterval = setInterval(() => {
@@ -88,8 +88,8 @@ function Timehtml2({ text }) {
 
 
     const change = () => {
-        if (start == 'התחל') {
-            let r = (Number(Rounds.Roundsonthetable) + 1)
+        if (start === 'התחל') {
+            let r = (Number(Rounds.Tables) + 1)
             console.log(r)
             setstart('הפסק')
 
@@ -104,6 +104,7 @@ function Timehtml2({ text }) {
             }).then(r => r.json())
                 .then(d => {
                     setRounds(d.deta[0])
+                    console.log(d.deta[0])
                 })
         }
         else {
@@ -112,6 +113,15 @@ function Timehtml2({ text }) {
             setstart('התחל')
         }
     }
+
+    document.onkeypress = function (evt) {
+        evt = evt || window.event;
+        var charCode = evt.keyCode || evt.which;
+        var charStr = String.fromCharCode(charCode);
+        if (charStr === 1) {
+            change()
+        }
+    };
 
 
     return (
@@ -122,5 +132,6 @@ function Timehtml2({ text }) {
         </div>
     )
 }
+
 
 export default Timehtml2

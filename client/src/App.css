@@ -24,13 +24,13 @@ body {
   font-family: 'Rubik', sans-serif;
   width: 120px;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: #d4d4d9;
   color: black;
   transition: all 0.3;
 }
 
 .nav-linkdiv:hover {
-  background-color:#8a9494;
+  background-color:#5d6a82;
   color: white;
 }
 

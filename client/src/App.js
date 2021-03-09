@@ -14,23 +14,13 @@ import {
 } from "react-router-dom";
 
 
-// console.log('ll')
-
-// let array = []
-// fetch('/getdata')
-//   .then(r => r.json())
-//   .then(d => {
-//     d.deta.forEach(element => {
-//       array.push(element)
-//     });
-//   })
 
 const Time = () => {
   return (
     <>
       <div className="cardnav-link"><Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link></div>
       <div className="home">
-        <Timehtml2 text={'שולחן שמאל'} />
+        <Timehtml text={'שולחן שמאל'} />
         <Timehtml text={'שולחן ימין'} />
       </div>
       <Cardtext />
