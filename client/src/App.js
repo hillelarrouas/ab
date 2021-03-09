@@ -54,12 +54,14 @@ function App() {
             <Route path="/Management">
               <Card />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Time />
             </Route>
-            <Route path="*">
-              <h1>404</h1>
+            <Route >
+              <h1 style={{textAlign:'center'}}>404</h1>
+              <Link className='nav-link' to="/"><div className="nav-linkdiv">חזרה לדף הבית</div></Link>
             </Route>
+         
           </Switch>
         </div>
       </div>
