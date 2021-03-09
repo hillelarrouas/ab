@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const mongoose = require('mongoose');
-app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
+app.use(express.static(path.join(__dirname,  'client', 'build')));
 
 const url = "mongodb+srv://hillel:Aa25802580@cluster0.rv8jb.mongodb.net/Matzah";
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });

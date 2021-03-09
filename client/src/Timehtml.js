@@ -42,7 +42,8 @@ function Timehtml({ text }) {
         }).then(r => r.json())
             .then(d => {
                 setRounds(d.deta[0])
-                settimetimer(Number(d.deta[0].timeLength) + .99166666666667)
+                settimetimer(Number(d.deta[0].timeLength) - 1 + .99166666666667)
+                console.log(timetimer)
                 setTimer(d.deta[0].timeLength + ':00')
             })
     }, [])
@@ -72,6 +73,7 @@ function Timehtml({ text }) {
 
         } else {
             clearInterval(timerInterval);
+            // clearInterval(timerInterval);
         }
     }, [start])
 
