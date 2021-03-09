@@ -68,7 +68,7 @@ app.post('/gettyperadio', async (req, res) => {
 })
 
 app.get('*', (req,res) =>{
-   res.send('hellp')
+    res.sendFile(path.join(__dirname,'client' , 'build', 'index.html'))
 })
 
 const port = process.env.PORT || 4000;
