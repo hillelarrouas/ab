@@ -6,7 +6,7 @@ let timerInterval
 let day
 
 function Timehtml({ text }) {
-    let [timee, setTimer] = useState()
+    let [timee, setTimer] = useState('')
     let [start, setstart] = useState('התחל')
     let [timetimer, settimetimer] = useState(17.99166666666667)
     let [Rounds, setRounds] = useState({})
@@ -42,7 +42,7 @@ function Timehtml({ text }) {
             .then(d => {
                 setRounds(d.deta[0])
                 settimetimer(Number(d.deta[0].timeLength) - 1 + .99166666666667)
-                setTimer(d.deta[0].timeLength + ':00')
+                setTimer(d.deta[0].timeLength < 10 ? '0' + d.deta[0].timeLength + ':00' : d.deta[0].timeLength + ':00')
             })
     }, [])
 
@@ -108,7 +108,7 @@ function Timehtml({ text }) {
                 })
         }
         else {
-            setTimer(Rounds.timeLength + ':00')
+            setTimer(Rounds.timeLength < 10 ? '0' + Rounds.timeLength + ':00' : Rounds.timeLength + ':00')
             setcolortime('black')
             setstart('התחל')
         }
@@ -120,7 +120,7 @@ function Timehtml({ text }) {
     //     var charCode = evt.keyCode || evt.which;
     //     var charStr = String.fromCharCode(charCode);
     //     console.log(charStr)
-    //     if (charStr === 2) {
+    //     if (charStr == 2) {
     //         change()
     //     }
     // };

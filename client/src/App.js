@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import Timehtml from './Timehtml';
-import Timehtml2 from './Timehtml';
+import Timehtml2 from './Timehtml2';
 import Cardtext from './Cardtext';
 import TimerManagement from './TimerManagement';
 import Error from './404';
@@ -14,13 +14,24 @@ import {
 } from "react-router-dom";
 
 
+// console.log('ll')
+
+// let array = []
+// fetch('/getdata')
+//   .then(r => r.json())
+//   .then(d => {
+//     d.deta.forEach(element => {
+//       array.push(element)
+//     });
+//   })
+
 
 const Time = () => {
   return (
     <>
       <div className="cardnav-link"><Link className='nav-link' to="/Management"><div className="nav-linkdiv">ניהול טיימר</div></Link></div>
       <div className="home">
-        <Timehtml text={'שולחן שמאל'} />
+        <Timehtml2 text={'שולחן שמאל'} />
         <Timehtml text={'שולחן ימין'} />
       </div>
       <Cardtext />

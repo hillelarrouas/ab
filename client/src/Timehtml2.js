@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Timehtml.css';
 
-
 let timerInterval
 let day
 
@@ -25,7 +24,7 @@ function Timehtml2({ text }) {
         else if (Datetime >= 18 && Datetime < 23) {
             day = 'ערב'
         }
-        else if (Datetime >= 23 ||(Datetime >= 0 && Datetime < 6)) {
+        else if (Datetime >= 23 || (Datetime >= 0 && Datetime < 6)) {
             day = 'לילה'
         }
 
@@ -42,7 +41,7 @@ function Timehtml2({ text }) {
             .then(d => {
                 setRounds(d.deta[0])
                 settimetimer(Number(d.deta[0].timeLength) - 1 + .99166666666667)
-                setTimer(d.deta[0].timeLength + ':00')
+                setTimer(d.deta[0].timeLength < 10 ? '0' + d.deta[0].timeLength + ':00' : d.deta[0].timeLength + ':00')
             })
     }, [])
 
@@ -65,7 +64,7 @@ function Timehtml2({ text }) {
 
                 if (--timer < 0) {
                     clearInterval(timerInterval);
-                    setTimer(Rounds.timeLength + ':00')
+                    setTimer(Rounds.timeLength < 10 ? '0' + Rounds.timeLength + ':00' : Rounds.timeLength + ':00')
                     setcolortime('black')
                     setstart('התחל')
                 }
@@ -104,24 +103,25 @@ function Timehtml2({ text }) {
             }).then(r => r.json())
                 .then(d => {
                     setRounds(d.deta[0])
-                    console.log(d.deta[0])
                 })
         }
         else {
-            setTimer(Rounds.timeLength + ':00')
+            setTimer(Rounds.timeLength < 10 ? '0' + Rounds.timeLength + ':00' : Rounds.timeLength + ':00')
             setcolortime('black')
             setstart('התחל')
         }
     }
 
-    document.onkeypress = function (evt) {
-        evt = evt || window.event;
-        var charCode = evt.keyCode || evt.which;
-        var charStr = String.fromCharCode(charCode);
-        if (charStr === 1) {
-            change()
-        }
-    };
+
+    // document.onkeypress = function (evt) {
+    //     evt = evt || window.event;
+    //     var charCode = evt.keyCode || evt.which;
+    //     var charStr = String.fromCharCode(charCode);
+    //     console.log(charStr)
+    //     if (charStr == 2) {
+    //         change()
+    //     }
+    // };
 
 
     return (
@@ -132,6 +132,5 @@ function Timehtml2({ text }) {
         </div>
     )
 }
-
 
 export default Timehtml2
