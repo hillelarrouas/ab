@@ -1,4 +1,5 @@
 let radio;
+let dataTyperadio;
 
 function Typeradio(e) {
     $(".hoverflwh").css('height', 'auto')
@@ -17,10 +18,12 @@ function Typeradio(e) {
         })
     }).then(res => res.json())
         .then(deta => {
-            $("#timeLength").val(deta.deta[0].timeLength)
-            $("#cosher").val(deta.deta[0].cosher)
-            $("#Tables").val(deta.deta[0].Tables)
-            $("#baking").val(deta.deta[0].baking)
+            const data = deta.deta[0]
+            dataTyperadio = data
+            $("#timeLength").val(data.timeLength)
+            $("#cosher").val(data.cosher)
+            $("#Tables").val(data.Tables)
+            $("#baking").val(data.baking)
         })
 }
 
@@ -34,7 +37,7 @@ $(document).ready(function () {
         const baking = $("#baking").val()
 
 
-        if (radio === '' ) {
+        if (radio === '') {
             $(".error").html('הזן סוג משמרת לשינויים')
         } else if (timeLength < 1 || timeLength > 18) {
             $(".error").html('הזן באורך הטיימר לפחות בין 1 ל 18')

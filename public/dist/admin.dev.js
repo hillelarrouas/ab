@@ -1,6 +1,7 @@
 "use strict";
 
 var radio;
+var dataTyperadio;
 
 function Typeradio(e) {
   $(".hoverflwh").css('height', 'auto');
@@ -18,10 +19,12 @@ function Typeradio(e) {
   }).then(function (res) {
     return res.json();
   }).then(function (deta) {
-    $("#timeLength").val(deta.deta[0].timeLength);
-    $("#cosher").val(deta.deta[0].cosher);
-    $("#Tables").val(deta.deta[0].Tables);
-    $("#baking").val(deta.deta[0].baking);
+    var data = deta.deta[0];
+    dataTyperadio = data;
+    $("#timeLength").val(data.timeLength);
+    $("#cosher").val(data.cosher);
+    $("#Tables").val(data.Tables);
+    $("#baking").val(data.baking);
   });
 }
 

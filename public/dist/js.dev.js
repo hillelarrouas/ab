@@ -44,6 +44,10 @@ $(document).ready(function () {
         var remainingseconds1 = seconds1 % 60;
         $('.time1').html(pad(minutes) + ":" + pad(remainingseconds1));
 
+        if (seconds1 == 119) {
+          $("#music2subtlety").trigger('play');
+        }
+
         if (seconds1 < 120) {
           $('.time1').css('color', 'red');
         }
@@ -87,11 +91,15 @@ $(document).ready(function () {
         var remainingseconds2 = seconds2 % 60;
         $('.time2').html(pad(minutes) + ":" + pad(remainingseconds2));
 
+        if (seconds2 == 119) {
+          $("#music2subtlety").trigger('play');
+        }
+
         if (seconds2 < 120) {
           $('.time2').css('color', 'red');
         }
 
-        if (seconds2 < 120 && seconds2 > 100 || seconds2 < 30) {
+        if (seconds2 < 117 && seconds2 > 100 || seconds2 < 30) {
           $("#music").trigger('play');
         }
 

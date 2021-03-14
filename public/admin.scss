@@ -8,7 +8,7 @@ body {
     background-color: honeydew;
     width: 90%;
     max-width: 500px;
-    margin:20px auto;
+    margin: 20px auto;
     background-color: #c2c9d679;
     text-align: center;
     padding: 40px 20px;
@@ -17,14 +17,17 @@ body {
     font-size: 20px;
     font-family: 'Assistant', sans-serif;
     box-sizing: border-box;
-    box-shadow: 5px 5px 12px 5px rgb(170, 170, 170),-5px -2px 12px 5px rgb(170, 170, 170);
+    box-shadow: 5px 5px 12px 5px rgb(170, 170, 170), -5px -2px 12px 5px rgb(170, 170, 170);
+
 }
+
 
 .rtl {
     text-align: right;
     padding: 10px;
 }
-.hoverflwh{
+
+.hoverflwh {
     overflow: hidden;
     height: 0;
     transition: all 0.3s;
@@ -37,8 +40,8 @@ body {
     text-align: center;
 }
 
-input[type=text] ,
-input[type=number]  {
+input[type=text],
+input[type=number] {
     direction: rtl;
     padding: 10px 0 3px;
     font-size: 20px;
@@ -71,22 +74,23 @@ input[type=number]  {
 }
 
 
-.titelcardinput{
+.titelcardinput {
     padding: 0px 0 20px;
     font-weight: 600;
     font-size: 30px;
 }
 
-button:hover{
+button:hover {
     background: #5d6a82;
     color: white;
 
 }
-button:active{
+
+button:active {
     border: 3px solid grey;
 }
 
-.cardinputradio{
+.cardinputradio {
     display: flex;
     justify-content: center;
     /* flex-wrap: wrap; */
@@ -94,13 +98,15 @@ button:active{
 
 
 @media only screen and (max-width: 500px) {
-    html{
+    html {
         user-select: none;
     }
-    .cardinput{
+
+    .cardinput {
         box-shadow: none;
     }
+
     .lebelinputRadio {
-        margin:3vw 2vw;
+        margin: 3vw 2vw;
     }
 }
