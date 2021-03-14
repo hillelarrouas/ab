@@ -22,8 +22,8 @@ function init() {
             $(".texttable").html(`${deta.Tables} שולחנות`)
             $(".textnumtable").html(deta.Roundsonthetable)
             $(".day").html(`משמרת ${deta.Type}`)
-            $('.time1').html(`${deta.timeLength}:00`)
-            $('.time2').html(`${deta.timeLength}:00`)
+            $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00')
+            $('.time2').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00')
         })
 }
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
 
                 if (seconds1 <= 0) {
-                    clearInterval(countdownTimer1)
+                    $(".retern1").click()
                 } else {
                     seconds1--;
                 }
@@ -78,7 +78,7 @@ $(document).ready(function () {
             $(".retern1").html('הפעלה')
             seconds1 = deta.timeLength * 60 - 1
             $('.time1').css('color', 'black')
-            $('.time1').html(`${deta.timeLength}:00`)
+            $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00')
             clearInterval(countdownTimer1)
         }
     });
@@ -116,7 +116,7 @@ $(document).ready(function () {
 
 
                 if (seconds2 <= 0) {
-                    clearInterval(countdownTimer2)
+                    $(".retern2").click()
                 } else {
                     seconds2--;
                 }
@@ -128,7 +128,7 @@ $(document).ready(function () {
             $(".retern2").html('הפעלה')
             seconds2 = deta.timeLength * 60 - 1
             $('.time2').css('color', 'black')
-            $('.time2').html(`${deta.timeLength}:00`)
+            $('.time2').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00')
             clearInterval(countdownTimer2)
         }
     });
@@ -137,6 +137,7 @@ $(document).ready(function () {
 function pad(n) {
     return (n < 10 ? "0" + n : n);
 }
+
 
 
 function reternday() {
@@ -173,5 +174,37 @@ function updating() {
     }).then(r => r.json())
         .then(d => {
             deta = d.deta[0]
+            $(".textAmount").html(deta.baking)
+            $(".textcosher").html(deta.cosher)
+            $(".texttable").html(`${deta.Tables} שולחנות`)
+            $(".textnumtable").html(deta.Roundsonthetable)
+            $(".day").html(`משמרת ${deta.Type}`)
         })
 }
+
+function popupWindow(url, windowName, win, w, h) {
+    const y = win.top.outerHeight / 2 + win.top.screenY - (h / 2);
+    const x = win.top.outerWidth / 2 + win.top.screenX - (w / 2);
+    return win.open(url, windowName, `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=${w}, height=${h}, top=${y}, left=${x}`);
+}
+
+document.onkeypress = function (evt) {
+    evt = evt || window.event;
+    let charCode = evt.keyCode || evt.which;
+    let charStr = String.fromCharCode(charCode);
+    if (charStr == 1) {
+        $(".retern1").click()
+    }
+    if (charStr == 2) {
+        $(".retern2").click()
+    }
+}; 
+
+
+
+setInterval(function () {
+    let day = reternday()
+    if (day !== deta.Type) {
+        updating()
+    }
+}, 5000);

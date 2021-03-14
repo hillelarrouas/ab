@@ -7,15 +7,30 @@ body {
 .buttonadmin {
   padding: 3px;
   font-size: 20px;
-  width: 100px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   background-color: #a4adbecb;
-  margin: 5px 0 7px 5px;
   border-radius: 3px;
   cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: 0.3s ease;
+}
+.buttonadmin:hover img {
+  transform: rotate(360deg);
+}
+.buttonadmin img {
+  width: 100%;
+  transition: 0.7s;
 }
 
 .cardtimer {
+  margin-top: 25px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -102,6 +117,15 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
+  html {
+    user-select: none;
+  }
+
+  .buttonadmin {
+    width: 35px;
+    height: 35px;
+  }
+
   .cardtimer {
     flex-wrap: wrap;
   }
@@ -127,7 +151,7 @@ body {
     left: 5px;
     top: 5px;
     font-size: min(6vw, 150rem);
-    padding: 8px;
+    padding: 0 5px;
     border-radius: 15px 10px 10px 10px;
   }
 

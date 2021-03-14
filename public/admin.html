@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dist/admin.css">
+        <title>ניהול טיימר</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500;600;700&display=swap"
+          rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+<body>
+    
+    <div class="cardinput">
+        <div class="titelcardinput">טיימר</div>
+            <div class="cardinputradio">
+                <label htmlFor="Morning" class='lebelinputRadio'>בוקר
+        <input type="radio" id="Morning" name="Type" value="בוקר" onchange='Typeradio(event)' />
+                </label>
+                <label class='lebelinputRadio' htmlFor="noon">צהריים
+        <input type="radio" id="noon" name="Type" value="צהריים" onchange='Typeradio(event)' />
+                </label>
+                <label class='lebelinputRadio' htmlFor="evening">ערב
+        <input type="radio" id="evening" name="Type" value="ערב" onchange='Typeradio(event)' />
+                </label>
+                <label class='lebelinputRadio' htmlFor="night">לילה
+        <input type="radio" id="night" name="Type" value="לילה" onchange='Typeradio(event)' />
+                </label><br />
+            </div>
+            <div class="hoverflwh">
+                <div class="rtl">
+                    <label class='lebelinputText' htmlFor="timeLength">אורך הטיימר  </label>
+                    <input type="number" name='timeLength' id='timeLength' placeholder="הזן בין 1 - 18" min="1" max="18" /><br />
+
+                    <label class='lebelinputText' htmlFor="cosher">כשרות</label>
+                    <input type="text" name='cosher' id='cosher' /><br />
+
+                    <label class='lebelinputText' htmlFor="Tables">מס שולחנות  </label>
+                    <input type="number" name='Tables' id='Tables' /><br />
+
+                    <label class='lebelinputText' htmlFor="baking">סוג אפיה</label>
+                    <input type="text" name='baking' id='baking' /><br />
+                </div>
+                <div class="error"></div>
+                <button class='butoonsubmit' type='submit'>שמור שינויים</button>
+            </div>
+    </div>
+
+
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -23,8 +23,8 @@ function init() {
     $(".texttable").html("".concat(deta.Tables, " \u05E9\u05D5\u05DC\u05D7\u05E0\u05D5\u05EA"));
     $(".textnumtable").html(deta.Roundsonthetable);
     $(".day").html("\u05DE\u05E9\u05DE\u05E8\u05EA ".concat(deta.Type));
-    $('.time1').html("".concat(deta.timeLength, ":00"));
-    $('.time2').html("".concat(deta.timeLength, ":00"));
+    $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00');
+    $('.time2').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00');
   });
 }
 
@@ -53,7 +53,7 @@ $(document).ready(function () {
         }
 
         if (seconds1 <= 0) {
-          clearInterval(countdownTimer1);
+          $(".retern1").click();
         } else {
           seconds1--;
         }
@@ -68,7 +68,7 @@ $(document).ready(function () {
       $(".retern1").html('הפעלה');
       seconds1 = deta.timeLength * 60 - 1;
       $('.time1').css('color', 'black');
-      $('.time1').html("".concat(deta.timeLength, ":00"));
+      $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00');
       clearInterval(countdownTimer1);
     }
   });
@@ -96,7 +96,7 @@ $(document).ready(function () {
         }
 
         if (seconds2 <= 0) {
-          clearInterval(countdownTimer2);
+          $(".retern2").click();
         } else {
           seconds2--;
         }
@@ -111,7 +111,7 @@ $(document).ready(function () {
       $(".retern2").html('הפעלה');
       seconds2 = deta.timeLength * 60 - 1;
       $('.time2').css('color', 'black');
-      $('.time2').html("".concat(deta.timeLength, ":00"));
+      $('.time2').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00');
       clearInterval(countdownTimer2);
     }
   });
@@ -151,5 +151,38 @@ function updating() {
     return r.json();
   }).then(function (d) {
     deta = d.deta[0];
+    $(".textAmount").html(deta.baking);
+    $(".textcosher").html(deta.cosher);
+    $(".texttable").html("".concat(deta.Tables, " \u05E9\u05D5\u05DC\u05D7\u05E0\u05D5\u05EA"));
+    $(".textnumtable").html(deta.Roundsonthetable);
+    $(".day").html("\u05DE\u05E9\u05DE\u05E8\u05EA ".concat(deta.Type));
   });
 }
+
+function popupWindow(url, windowName, win, w, h) {
+  var y = win.top.outerHeight / 2 + win.top.screenY - h / 2;
+  var x = win.top.outerWidth / 2 + win.top.screenX - w / 2;
+  return win.open(url, windowName, "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=".concat(w, ", height=").concat(h, ", top=").concat(y, ", left=").concat(x));
+}
+
+document.onkeypress = function (evt) {
+  evt = evt || window.event;
+  var charCode = evt.keyCode || evt.which;
+  var charStr = String.fromCharCode(charCode);
+
+  if (charStr == 1) {
+    $(".retern1").click();
+  }
+
+  if (charStr == 2) {
+    $(".retern2").click();
+  }
+};
+
+setInterval(function () {
+  var day = reternday();
+
+  if (day !== deta.Type) {
+    updating();
+  }
+}, 5000);
