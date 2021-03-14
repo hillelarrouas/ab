@@ -70,3 +70,9 @@ $(document).ready(function () {
     }
   });
 });
+
+function ScrollUp(Input) {
+  $('html, body').animate({
+    scrollTop: $(Input).position().top - 50
+  }, 'slow');
+}
