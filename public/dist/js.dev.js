@@ -174,7 +174,7 @@ document.onkeypress = function (evt) {
     $(".retern1").click();
   }
 
-  if (charStr == 2) {
+  if (charStr == 3) {
     $(".retern2").click();
   }
 };

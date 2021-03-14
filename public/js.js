@@ -195,7 +195,7 @@ document.onkeypress = function (evt) {
     if (charStr == 1) {
         $(".retern1").click()
     }
-    if (charStr == 2) {
+    if (charStr == 3) {
         $(".retern2").click()
     }
 }; 
