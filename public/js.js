@@ -83,7 +83,7 @@ $(document).ready(function () {
             clearInterval(countdownTimer1)
         }
     });
-});
+}); 
 
 
 let seconds2 = 0
