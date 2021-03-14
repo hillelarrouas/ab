@@ -6,7 +6,7 @@ function Typeradio(e) {
   $(".hoverflwh").css('height', 'auto');
   var Type = e.target.value;
   radio = Type;
-  console.log(Type);
+  $('.titelcardinput').html("\u05E0\u05D9\u05D4\u05D5\u05DC \u05D8\u05D9\u05D9\u05DE\u05E8 - ".concat(radio));
   fetch('/gettyperadio', {
     method: 'post',
     headers: {

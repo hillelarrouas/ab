@@ -5,7 +5,7 @@ function Typeradio(e) {
 
     const Type = e.target.value;
     radio = Type
-    console.log(Type)
+    $('.titelcardinput').html(`ניהול טיימר - ${radio}`)
 
     fetch('/gettyperadio', {
         method: 'post',
