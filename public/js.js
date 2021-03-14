@@ -62,7 +62,7 @@ $(document).ready(function () {
                 if (seconds1 < 120) {
                     $('.time1').css('color', 'red')
                 }
-                if (seconds1 < 120 && seconds1 > 100 || seconds1 < 30) {
+                if (seconds1 < 117 && seconds1 > 100 || seconds1 < 30) {
                     $("#music").trigger('play');
                 }
 
