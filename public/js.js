@@ -81,6 +81,7 @@ $(document).ready(function () {
             $('.time1').css('color', 'black')
             $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00')
             clearInterval(countdownTimer1)
+            // countdownTimer1 = undefined
         }
     });
 }); 

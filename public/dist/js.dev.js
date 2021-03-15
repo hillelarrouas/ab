@@ -73,7 +73,7 @@ $(document).ready(function () {
       seconds1 = deta.timeLength * 60 - 1;
       $('.time1').css('color', 'black');
       $('.time1').html(deta.timeLength < 10 ? '0' + deta.timeLength + ':00' : deta.timeLength + ':00');
-      clearInterval(countdownTimer1);
+      clearInterval(countdownTimer1); // countdownTimer1 = undefined
     }
   });
 });
