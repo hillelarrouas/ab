@@ -1,9 +1,14 @@
+html {
+    user-select: none;
+}
+
 body {
     margin: 0;
     background-image: url(/img/background.jpg);
     background-attachment: fixed;
     font-family: 'Assistant', sans-serif;
 }
+
 .cardmessag {
     position: fixed;
     width: 100%;
@@ -16,7 +21,6 @@ body {
     top: 0;
     left: 0;
 }
-
 
 .buttonadmin {
     padding: 3px;
@@ -137,9 +141,6 @@ body {
 
 
 @media only screen and (max-width: 500px) {
-    html {
-        user-select: none;
-    }
 
     .buttonadmin {
         width: 35px;
@@ -171,7 +172,7 @@ body {
         left: 5px;
         top: 5px;
         font-size: min(6vw, 150rem);
-        padding:0 5px;
+        padding: 0 5px;
         border-radius: 15px 10px 10px 10px;
     }
 

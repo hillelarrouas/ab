@@ -1,3 +1,7 @@
+html {
+  user-select: none;
+}
+
 body {
   margin: 0;
   background-image: url(/img/background.jpg);
@@ -131,10 +135,6 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
-  html {
-    user-select: none;
-  }
-
   .buttonadmin {
     width: 35px;
     height: 35px;
